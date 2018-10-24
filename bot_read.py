@@ -1,11 +1,21 @@
 import praw 
 
-reddit = praw.Reddit('bot1')
+bot1='bot1'
 
-subreddit = reddit.subreddit("learnpython")
+def read_subreddit(subreddit):
+    if subreddit is None:
+        print("no subreddit")
+        return
+    
+    subreddit_content = praw.Reddit('bot1').subreddit(subreddit)
+    print_subreddit_content(subreddit_content)
 
-for submission in subreddit.hot(limit=5):
-    print("Title: ", submission.title)
-    print("Text: ", submission.selftext)
-    print("Score: ", submission.score)
-    print("------------------------------------\n")
+def print_subreddit_content(subreddit_content):
+    for submission in subreddit_content.hot(limit=5):
+        print("Title: ", submission.title)
+        print("Text: ", submission.selftext)
+        print("Score: ", submission.score)
+        print("------------------------------------\n")
+
+to_read = input("please type a subreddit to read: ")
+read_subreddit(to_read)
