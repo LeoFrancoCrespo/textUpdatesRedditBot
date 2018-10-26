@@ -22,6 +22,6 @@ class Bot(object):
             print("------------------------------------\n")
 
 to_read = 'all' # input("please enter subreddit to read: ")
-bot1 = Bot(name='bot1')
+bot1 = Bot(name='r4rTexter')
 bot1.read_subreddit(to_read)
 bot1.print_subreddit_content()
