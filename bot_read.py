@@ -4,8 +4,7 @@ bot1='bot1'
 
 def read_subreddit(subreddit):
     if subreddit is None:
-        print("no subreddit")
-        return
+        raise Exception
     
     subreddit_content = praw.Reddit('bot1').subreddit(subreddit)
     print_subreddit_content(subreddit_content)
